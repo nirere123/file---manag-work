@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard — GLIHD Digital Records System</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="appShell">
+
+<div class="topbar">
+  <div class="brand">
+    <div class="brand-mark"></div>
+    <div class="brand-text">
+      <h1>GLIHD Digital Records System</h1>
+      <p>Great Lakes Initiative for Human Rights &amp; Development</p>
+    </div>
+  </div>
+  <div style="display:flex; align-items:center; gap:16px;">
+    <div class="bell-wrap">
+      <button class="bell-btn" id="bellBtn" type="button">
+        <span class="bell-dot"></span> Notifications
+      </button>
+      <div class="bell-panel" id="bellPanel">
+        <h4>Recent activity</h4>
+        <div id="notifList"></div>
+      </div>
+    </div>
+    <div class="user-pill" id="userPill">Signed in</div>
+    <button class="logout-link" id="logoutBtn" type="button">Log out</button>
+  </div>
+</div>
+
+<div class="shell">
+  <div class="sidebar">
+    <h3>Folders</h3>
+    <div id="folderList"></div>
+    <div class="sidebar-note">
+      <strong>Note for reviewers:</strong> this is a working demo of the system built during the IT Support internship at GLIHD. Log out and sign in as a different account to see how access changes per person — Read-Only cannot upload or delete, Staff cannot see the Finance folder, Executive-level documents are restricted to the Director and Auditor, and any document marked "Private" is visible only to its owner and the Director. Check the Notifications bell and Audit Log for a live activity trail.
+    </div>
+  </div>
+
+  <div class="main">
+    <div id="lockedBanner"></div>
+
+    <div id="adminDashboard"></div>
+
+    <div class="main-head">
+      <div>
+        <h2 id="folderTitle">All Records</h2>
+        <p id="folderSub">Documents shared across GLIHD departments</p>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="text" id="searchBox" placeholder="Search documents by name...">
+      <select id="confFilter">
+        <option value="all">All confidentiality levels</option>
+        <option value="Public">Public</option>
+        <option value="Internal">Internal</option>
+        <option value="Confidential">Confidential</option>
+        <option value="Executive">Executive</option>
+      </select>
+      <button class="btn-secondary" id="clearSearchBtn">Clear filters</button>
+      <button class="btn-primary" id="uploadBtn">Upload document</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Document name</th>
+          <th>Department</th>
+          <th>Confidentiality</th>
+          <th>Uploaded by</th>
+          <th>Date</th>
+          <th>Size</th>
+          <th style="text-align:right;">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="fileTableBody"></tbody>
+    </table>
+  </div>
+
+  <div class="audit-panel">
+    <h3>Audit Log</h3>
+    <div class="sub">Every upload, download, and deletion is recorded automatically.</div>
+    <div id="auditList"></div>
+  </div>
+</div>
+
+</div><!-- /#appShell -->
+
+<script src="data.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

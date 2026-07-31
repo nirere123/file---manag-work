@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign In — GLIHD Digital Records System</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="brand-mark"></div>
+    <h2>GLIHD Digital Records System</h2>
+    <p class="tagline">Staff sign-in required</p>
+
+    <div class="credentials-box">
+      <strong>Demo login — use this to sign in:</strong>
+      <div class="cred-line">Password for every account: <span class="cred-pass">demo123</span></div>
+      <div class="cred-line">Pick any name from the Account list below, e.g. <em>Vestine Mulisa</em> (Director) or <em>Aliya Nirere</em> (IT Support Intern).</div>
+    </div>
+
+    <div id="loginPane">
+      <label class="field-label" for="loginUser">Account</label>
+      <select id="loginUser"></select>
+
+      <label class="field-label" for="loginPassword">Password</label>
+      <input type="password" id="loginPassword" placeholder="Enter password">
+
+      <button class="btn-primary btn-full" id="loginBtn">Sign in</button>
+      <div id="loginError"></div>
+
+      <div class="switch-mode">
+        New staff member? <button class="link-btn" id="showSignupBtn" type="button">Create an account</button>
+      </div>
+    </div>
+
+    <div id="signupPane" style="display:none;">
+      <label class="field-label" for="signupName">Full name</label>
+      <input type="text" id="signupName" placeholder="e.g. Diane Uwimana">
+
+      <label class="field-label" for="signupDept">Department</label>
+      <select id="signupDept">
+        <option value="admin">Admin</option>
+        <option value="legal">Legal Aid</option>
+        <option value="advocacy">Advocacy</option>
+        <option value="finance">Finance</option>
+      </select>
+
+      <label class="field-label" for="signupPassword">Choose a password</label>
+      <input type="password" id="signupPassword" placeholder="At least 6 characters">
+
+      <label class="field-label" for="signupPassword2">Confirm password</label>
+      <input type="password" id="signupPassword2" placeholder="Re-enter password">
+
+      <button class="btn-primary btn-full" id="signupBtn">Create account</button>
+      <div id="signupError"></div>
+
+      <div class="switch-mode">
+        Already have an account? <button class="link-btn" id="showLoginBtn" type="button">Back to sign in</button>
+      </div>
+    </div>
+
+    <div class="login-hint">
+      <strong>Reviewer note:</strong> accounts and documents are stored in this browser's local storage as a stand-in for a real database, so your session carries over to the dashboard page. Use the "Reset demo data" link below if you want to start fresh.
+    </div>
+    <button class="reset-link" id="resetBtn" type="button">Reset demo data</button>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="login.js"></script>
+</body>
+</html>

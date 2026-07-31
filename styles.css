@@ -1,0 +1,229 @@
+:root{
+    --navy:#173654;
+    --navy-deep:#0e253c;
+    --gold:#c99a2e;
+    --gold-light:#e4bd63;
+    --paper:#f6f4ee;
+    --paper-dim:#ece8dc;
+    --line:#d9d3c2;
+    --ink:#1f2a33;
+    --ink-soft:#5b6670;
+    --green:#3c6b47;
+    --red:#9c3b3b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+  }
+  h1,h2,h3{ font-family:Georgia,"Times New Roman",serif; margin:0; }
+
+  /* Top bar */
+  .topbar{
+    background:var(--navy-deep);
+    color:#fff;
+    padding:14px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:4px solid var(--gold);
+  }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand-mark{
+    width:38px;height:38px;border-radius:50%;
+    background:conic-gradient(var(--gold) 0 25%, var(--navy) 0 100%);
+    border:2px solid var(--gold-light);
+    flex:none;
+  }
+  .brand-text h1{ font-size:18px; letter-spacing:.3px; }
+  .brand-text p{ margin:0; font-size:11px; color:#c9d3db; letter-spacing:.5px; text-transform:uppercase; }
+
+  .role-switch{ display:flex; align-items:center; gap:10px; font-size:13px; }
+  .role-switch select{
+    background:var(--navy);
+    color:#fff;
+    border:1px solid var(--gold);
+    padding:6px 10px;
+    border-radius:4px;
+    font-size:13px;
+  }
+  .user-pill{
+    background:var(--navy);
+    border:1px solid #2c4d6e;
+    border-radius:20px;
+    padding:4px 12px;
+    font-size:12px;
+    color:#dbe4ec;
+  }
+
+  /* Layout */
+  .shell{ display:grid; grid-template-columns:230px 1fr 300px; min-height:calc(100vh - 68px); }
+  @media (max-width:980px){ .shell{ grid-template-columns:1fr; } .audit-panel{ order:3; } .sidebar{order:1;} }
+
+  .sidebar{
+    background:var(--navy);
+    color:#e8edf1;
+    padding:20px 14px;
+  }
+  .sidebar h3{ font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--gold-light); margin-bottom:10px; }
+  .folder-item{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:9px 10px; border-radius:5px; margin-bottom:4px;
+    cursor:pointer; font-size:14px; color:#dfe6ec;
+  }
+  .folder-item:hover{ background:#20456a; }
+  .folder-item.active{ background:var(--gold); color:var(--navy-deep); font-weight:600; }
+  .folder-count{ font-size:11px; opacity:.75; }
+  .sidebar-note{
+    margin-top:22px; padding:12px; background:#0e253c; border:1px solid #24476a;
+    border-radius:6px; font-size:12px; color:#b7c4cf; line-height:1.5;
+  }
+
+  .main{ padding:22px 26px; }
+  .main-head{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:16px; flex-wrap:wrap; gap:10px;}
+  .main-head h2{ font-size:20px; }
+  .main-head p{ margin:4px 0 0; color:var(--ink-soft); font-size:13px; }
+
+  .toolbar{ display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap; }
+  input[type=text]{
+    flex:1; min-width:180px; padding:9px 12px; border:1px solid var(--line);
+    border-radius:5px; font-size:13px; background:#fff;
+  }
+  button{
+    font-family:inherit; font-size:13px; font-weight:600; cursor:pointer;
+    border-radius:5px; padding:9px 14px; border:1px solid transparent;
+  }
+  .btn-primary{ background:var(--navy); color:#fff; }
+  .btn-primary:hover{ background:var(--navy-deep); }
+  .btn-secondary{ background:#fff; color:var(--navy); border-color:var(--line); }
+  .btn-secondary:hover{ background:var(--paper-dim); }
+  .btn-danger{ background:#fff; color:var(--red); border-color:#e0c4c4; }
+  .btn-danger:hover{ background:#faefef; }
+  .btn-disabled, button:disabled{ opacity:.4; cursor:not-allowed; }
+
+  table{ width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:6px; overflow:hidden;}
+  thead th{
+    text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.5px;
+    color:var(--ink-soft); background:var(--paper-dim); padding:10px 12px; border-bottom:1px solid var(--line);
+  }
+  tbody td{ padding:11px 12px; font-size:13px; border-bottom:1px solid #eee; vertical-align:middle;}
+  tbody tr:last-child td{ border-bottom:none; }
+  .file-name{ font-weight:600; }
+  .tag{
+    display:inline-block; font-size:11px; padding:2px 8px; border-radius:10px;
+    background:var(--paper-dim); color:var(--ink-soft); border:1px solid var(--line);
+  }
+  .row-actions{ display:flex; gap:6px; }
+  .row-actions button{ padding:5px 10px; font-size:12px; }
+
+  .empty{ padding:40px 12px; text-align:center; color:var(--ink-soft); font-size:13px; }
+
+  /* Audit panel */
+  .audit-panel{ background:#fff; border-left:1px solid var(--line); padding:20px; }
+  .audit-panel h3{ font-size:13px; text-transform:uppercase; letter-spacing:.5px; color:var(--ink-soft); margin-bottom:4px;}
+  .audit-panel .sub{ font-size:11px; color:var(--ink-soft); margin-bottom:14px; }
+  .audit-entry{
+    border-left:2px solid var(--gold); padding:8px 0 8px 12px; margin-bottom:10px; font-size:12.5px;
+  }
+  .audit-entry .action{ font-weight:700; color:var(--navy); }
+  .audit-entry .meta{ color:var(--ink-soft); margin-top:2px; }
+  .locked-banner{
+    background:#fdf6e3; border:1px solid var(--gold); color:#7a5a12;
+    padding:8px 10px; border-radius:6px; font-size:12px; margin-bottom:14px;
+  }
+  .dashboard-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:18px; }
+  .card{ background:#fff; border:1px solid var(--line); border-radius:6px; padding:14px; }
+  .card .num{ font-family:Georgia,serif; font-size:26px; color:var(--navy); }
+  .card .lbl{ font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:var(--ink-soft); }
+
+  /* Confidentiality badges */
+  .conf-tag{ display:inline-block; font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:10px; letter-spacing:.3px; }
+  .conf-Public{ background:#e6f2e8; color:var(--green); border:1px solid #bfe0c6; }
+  .conf-Internal{ background:#e8f0f8; color:#2a5788; border:1px solid #c4d8ea; }
+  .conf-Confidential{ background:#faf1de; color:#8a6415; border:1px solid #ecd9ad; }
+  .conf-Executive{ background:#f8e6e6; color:var(--red); border:1px solid #ecc3c3; }
+  select#confFilter{ padding:9px 10px; border:1px solid var(--line); border-radius:5px; font-size:13px; background:#fff; color:var(--ink); }
+
+  /* Notifications bell */
+  .bell-wrap{ position:relative; }
+  .bell-btn{
+    background:var(--navy); color:#fff; border:1px solid #2c4d6e; border-radius:20px;
+    padding:6px 12px; font-size:12px; display:flex; align-items:center; gap:6px; cursor:pointer;
+  }
+  .bell-btn:hover{ background:#20456a; }
+  .bell-dot{ width:7px; height:7px; border-radius:50%; background:var(--gold); display:inline-block; }
+  .bell-panel{
+    position:absolute; right:0; top:calc(100% + 8px); width:280px; background:#fff; color:var(--ink);
+    border:1px solid var(--line); border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,.18);
+    padding:10px; z-index:20; display:none;
+  }
+  .bell-panel.open{ display:block; }
+  .bell-panel h4{ font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:var(--ink-soft); margin:2px 0 8px 4px; }
+  .notif-item{ padding:8px 6px; border-bottom:1px solid #f0ede4; font-size:12.5px; line-height:1.4; }
+  .notif-item:last-child{ border-bottom:none; }
+  .notif-item b{ color:var(--navy); }
+  .notif-time{ color:var(--ink-soft); font-size:11px; }
+
+  /* Login screen */
+  #loginScreen{
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:radial-gradient(circle at top left, #1e4468, var(--navy-deep) 65%);
+    padding:20px;
+  }
+  .login-card{
+    width:100%; max-width:380px; background:#fff; border-radius:10px;
+    box-shadow:0 20px 50px rgba(0,0,0,.35); padding:30px 28px; text-align:left;
+  }
+  .login-card .brand-mark{ margin:0 auto 14px; }
+  .login-card h2{ font-size:19px; text-align:center; }
+  .login-card p.tagline{ text-align:center; color:var(--ink-soft); font-size:12px; margin:4px 0 20px; text-transform:uppercase; letter-spacing:.5px; }
+  .field-label{ font-size:12px; font-weight:600; color:var(--ink-soft); display:block; margin:14px 0 5px; }
+  .login-card select, .login-card input[type=password]{
+    width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:5px; font-size:13px; background:#fff; color:var(--ink);
+  }
+  #loginError{ color:var(--red); font-size:12px; margin-top:10px; min-height:14px; }
+  .login-hint{
+    margin-top:18px; padding:10px 12px; background:var(--paper-dim); border-radius:6px;
+    font-size:11.5px; color:var(--ink-soft); line-height:1.5;
+  }
+  .btn-full{ width:100%; margin-top:18px; padding:11px; font-size:14px; }
+  .logout-link{
+    background:none; border:none; color:#c9d3db; font-size:12px; text-decoration:underline;
+    cursor:pointer; padding:0;
+  }
+
+  /* Ownership / privacy indicators */
+  .lock-tag{
+    display:inline-block; font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:10px;
+    background:#eee5d8; color:#7a5a12; border:1px solid #e0cfa8; margin-left:4px;
+  }
+
+/* Credentials box (very visible demo login info) */
+.credentials-box{
+  margin-bottom:6px; padding:12px 14px; background:#fdf6e3; border:1px solid var(--gold);
+  border-radius:6px; font-size:12.5px; color:#5a4310; line-height:1.5;
+}
+.credentials-box .cred-line{ margin-top:4px; }
+.credentials-box .cred-pass{
+  font-family:"Courier New",monospace; font-weight:700; background:#fff; padding:1px 6px;
+  border-radius:4px; border:1px solid #e0cfa8; color:var(--navy);
+}
+
+/* Sign-up pane reuses login-card field styles */
+.login-card input[type=text]{
+  width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:5px; font-size:13px; background:#fff; color:var(--ink);
+}
+.switch-mode{ margin-top:14px; font-size:12px; text-align:center; color:var(--ink-soft); }
+.link-btn{
+  background:none; border:none; color:var(--navy); font-weight:700; text-decoration:underline;
+  cursor:pointer; padding:0; font-size:12px; font-family:inherit;
+}
+#signupError{ color:var(--red); font-size:12px; margin-top:10px; min-height:14px; }
+
+/* Reset-demo-data link on the login screen */
+.reset-link{
+  display:block; margin:14px auto 0; background:none; border:none; color:var(--ink-soft);
+  font-size:11px; text-decoration:underline; cursor:pointer; padding:0; text-align:center; width:100%;
+}
